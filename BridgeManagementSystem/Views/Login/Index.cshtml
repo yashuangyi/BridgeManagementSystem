@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "登录";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+</head>
+
+<body>
+    <div class="layui-bg-gray" style="width:800px;height:450px;border:1px solid black;position:absolute;top:50%;left:50%;margin:-225px 0 0 -400px;text-align:center;">
+        <script src="@Url.Content("~/Scripts/jquery-3.3.1.min.js")" type="text/javascript"></script>
+        <script type="text/javascript" language="javascript">
+            $(document).ready(function () {
+                $("#login").click(function () {
+                    var account = document.getElementById("account").value;
+                    var password = document.getElementById("password").value;
+                    $.ajax({
+                        url: "/Login/Check",
+                        dataType: "json",
+                        type: "post",
+                        data: {
+                            account: account,
+                            password: password,
+                        },
+                        success: function (res) {
+                            console.log(res.code);//控制台输出日志，便于调试
+                            if (res.code == 200) {
+                                alert('登录成功！');
+                                //跳转至后台
+                                window.location.href = "/Home/Index";
+                            } else if (res.code == 401) {
+                                alert('账号密码不能为空，请重新输入！');
+                            } else {
+                                alert('账号或密码错误！');
+                            }
+                        },
+                        error: function () {
+                            alert("登录失败，请联系系统管理员!");
+                        },
+                    });
+                });
+            });
+        </script>
+       
+        <script src="../layui/layui.js"></script>
+
+        <div>
+            <br /><br /><br /><br />
+            <img src="~/images/login.jpg" style="width:100px;height:100px" alt="图片加载失败..." title="bridge"/>
+            <h3>
+                <i class="layui-icon layui-icon-rate-solid" style="font-size:30px;color:#ffd800;"></i>
+                <strong>桥梁管理系统</strong>
+                <i class="layui-icon layui-icon-rate-solid" style="font-size:30px;color:#ffd800;"></i>
+            </h3>
+            <br /><br />
+            <i class="layui-icon layui-icon-user" style="font-size:20px;color:black;"></i>
+            账号：<input type="text" id="account" class="layui-edit" />
+            <br /><br />
+            <i class="layui-icon layui-icon-password" style="font-size:20px;color:black;"></i>
+            密码：<input type="password" id="password" class="layui-edit" />
+            <br /><br />
+            <button type="button" class="layui-btn" id="login">登录</button>
+            <br /><br />
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - <a href="http://www.gdjky.com/" title="联系我们">广东省建筑科学研究院路桥研究所</a></p>
+            </footer>
+        </div>
+
+    </div>
+</body>
+</html>

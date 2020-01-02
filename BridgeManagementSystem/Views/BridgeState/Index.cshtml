@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="/layui/css/layui.css" media="all">
+</head>
+<body>
+    <script type="text/html" id="bridgeStateInform">
+        <form class="layui-form" id="bridgeStateForm">
+            <div>
+                <br />
+                <div class="layui-form-item layui-form-pane">
+                    <label class="layui-form-label">桥梁名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="name" placeholder="请输入桥梁名称" autocomplete="off" class="layui-input" disabled>
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-pane">
+                    <label class="layui-form-label">登记年份</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="time" placeholder="请输入登记年份" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-pane">
+                    <label class="layui-form-label">左幅健康</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="left" placeholder="请输入左幅健康情况" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-pane">
+                    <label class="layui-form-label">右幅健康</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="right" placeholder="请输入右幅健康情况" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-pane">
+                    <label class="layui-form-label">上部健康</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="top" placeholder="请输入上部结构健康情况" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-pane">
+                    <label class="layui-form-label">下部健康</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="bottom" placeholder="请输入下部结构健康情况" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </script>
+
+    <table id="bridgeState" lay-data="{id:'bridgeStateData'}" lay-filter="bridgeState"></table>
+
+    <script type="text/html" id="bar">
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+
+    <script src="../layui/layui.js"></script>
+    <script src="~/Scripts/BridgeState/bridgeState.js"></script>
+</body>
+</html>

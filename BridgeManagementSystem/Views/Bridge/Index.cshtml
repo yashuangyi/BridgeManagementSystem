@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="/layui/css/layui.css" media="all">
+</head>
+
+<body>
+    <script type="text/html" id="bridgeInform">
+        <form class="layui-form" id="bridgeForm">
+            <div>
+                <br />
+                <div class="layui-form-item layui-form-pane">
+                    <label class="layui-form-label">桥梁名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="name" placeholder="桥梁名称" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-pane">
+                    <label class="layui-form-label">地址</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="address" placeholder="请输入地址" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-pane">
+                    <label class="layui-form-label">管理单位</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="unit" placeholder="请输入管理单位" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-pane">
+                    <label class="layui-form-label">桥梁类型</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="type" placeholder="请输入桥梁类型" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </script>
+
+
+
+    <table id="bridge" lay-data="{id:'bridgeData'}" lay-filter="bridge"></table>
+
+    <script type="text/html" id="bar">
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+
+    <script src="../layui/layui.js"></script>
+    <script src="~/Scripts/Bridge/bridge.js"></script>
+</body>
+</html>
